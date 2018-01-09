@@ -1,0 +1,11 @@
+.smex-items
+auto-save-list/
+backups/
+elpa/
+places
+projectile.cache
+tramp
+*.last
+.emacs.desktop
+.emacs.desktop.lock
+
