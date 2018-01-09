@@ -48,6 +48,10 @@
     helm-cider
     helm-ag
     exec-path-from-shell
+    smex
+    helm-smex
+    helm-fuzzier
+    helm-swoop
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -95,7 +99,7 @@
  '(nrepl-host "localhost")
  '(package-selected-packages
    (quote
-    (exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
+    (command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
  '(projectile-use-git-grep t)
  '(safe-local-variable-values
    (quote
@@ -382,5 +386,13 @@ the (^:fold ...) expressions."
 (global-set-key (kbd "C-x b") #'helm-buffers-list)
 (global-set-key (kbd "C-c p f") #'helm-projectile-find-file)
 
+(define-key isearch-mode-map (kbd "M-s o") #'helm-occur-from-isearch)
+(global-set-key (kbd "M-y") #'helm-show-kill-ring)
+(global-set-key (kbd "C-s") #'helm-occur)
 
+(require 'command-log-mode)
+(add-hook 'LaTeX-mode-hook #'command-log-mode)
+
+(global-set-key [remap execute-extended-command] #'helm-smex)
+(global-set-key (kbd "M-X") #'helm-smex-major-mode-commands)
 
