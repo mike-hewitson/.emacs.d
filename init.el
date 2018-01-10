@@ -40,6 +40,7 @@
     highlight
     git-link
     expand-region
+    flycheck-joker
     avy
     ;; Mikes
     helm
@@ -63,6 +64,9 @@
 ;; Load key bindings.
 (load (concat user-emacs-directory "keybinds.el"))
 
+(require 'flycheck-joker)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 (setq cider-font-lock-reader-conditionals nil)
 
 (custom-set-faces
@@ -84,12 +88,10 @@
    (vector "#cccccc" "#f2777a" "#99cc99" "#ffcc66" "#6699cc" "#cc99cc" "#66cccc" "#2d2d2d"))
  '(auto-save-default nil)
  '(backup-inhibited t t)
- '(blink-cursor-mode nil)
  '(blink-matching-paren nil)
  '(cider-buffer-name-show-port t)
  '(cljr-favor-prefix-notation nil)
  '(cljr-favor-private-functions nil)
- '(column-number-mode t)
  '(custom-safe-themes
    (quote
     ("ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
@@ -103,14 +105,15 @@
  '(projectile-use-git-grep t)
  '(safe-local-variable-values
    (quote
-    ((cider-cljs-lein-repl . "(do (dev) (go) (cljs-repl))")
+    ((cider-refresh-after-fn . "integrant.repl/resume")
+     (cider-refresh-before-fn . "integrant.repl/suspend")
+     (cider-cljs-lein-repl . "(do (dev) (go) (cljs-repl))")
      (cider-refresh-after-fn . "reloaded.repl/resume")
      (cider-refresh-before-fn . "reloaded.repl/suspend")
      (whitespace-line-column . 80)
      (lexical-binding . t))))
  '(show-paren-delay 0)
  '(show-paren-mode t)
- '(tool-bar-mode nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -208,11 +211,6 @@
   (flet ((process-list ())) ad-do-it))
 
 (define-clojure-indent
-  ;; prismatic plumbing
-  (for-map 'defun)
-  (letk 'defun)
-  (fnk 'defun)
-  (memoized-fn 'defun)
   ;; compojure
   (context 'defun)
   (GET 'defun)
@@ -227,17 +225,6 @@
   (and-join 'defun)
   (or-join 'defun)
   (not-join 'defun)
-  (did-update 'defun)
-  (render-state 'defun)
-  ;; midje
-  (fact 'defun)
-  ;; om
-  (render 'defun)
-  (render-state 'defun)
-  ;; om.next
-  (initial-state 'defun)
-  (ident 'defun)
-  (query 'defun)
   ;; tufte
   (tufte/p 'defun))
 
@@ -337,11 +324,9 @@
                (123 . ".\\(?:-\\)")
                (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
                (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)"))))
-
-
   (dolist (char-regexp alist)
     (set-char-table-range composition-function-table (car char-regexp)
-                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
+                                `([(cdr char-regexp) 0 font-shape-gstring]))))
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
