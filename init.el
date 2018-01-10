@@ -53,6 +53,7 @@
     helm-smex
     helm-fuzzier
     helm-swoop
+    helm-descbinds
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -380,4 +381,7 @@ the (^:fold ...) expressions."
 
 (global-set-key [remap execute-extended-command] #'helm-smex)
 (global-set-key (kbd "M-X") #'helm-smex-major-mode-commands)
+
+(require 'helm-descbinds)
+(helm-descbinds-mode)
 
