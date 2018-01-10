@@ -1,0 +1,9 @@
+*.css
+*/out/*
+*out*
+*.map
+*.scss
+*public*
+*.html
+resources/*
+cognician.transit

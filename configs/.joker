@@ -1,0 +1,11 @@
+{:known-macros
+[rum.core/defc
+rum.core/defcs
+cognician.radiant/def-component
+cognician.radiant/def-component-state
+noir.util.route/def-restricted-routes
+compojure.core/defroutes
+compojure.core/GET
+taoensso.tufte/defnp
+puppetlabs.trapperkeeper.core/defservice]
+:known-tags [db/fn]}
