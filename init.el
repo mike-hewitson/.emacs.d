@@ -43,8 +43,14 @@
     flycheck-joker
     avy
     ;; Mikes
+    ;; snippets
+    yasnippet
+    yasnippet-snippets
+    clojure-snippets
+    datomic-snippets
+
+    ;;helm
     helm
-    ;; helm-config
     helm-projectile
     helm-cider
     helm-ag
@@ -102,7 +108,7 @@
  '(nrepl-host "localhost")
  '(package-selected-packages
    (quote
-    (command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
+    (dayone yasnippet-snippets command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
  '(projectile-use-git-grep t)
  '(safe-local-variable-values
    (quote
