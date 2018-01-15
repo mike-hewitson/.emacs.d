@@ -43,6 +43,7 @@
     flycheck-joker
     avy
     ;; Mikes
+    command-log-mode
     ;; snippets
     yasnippet
     yasnippet-snippets
