@@ -176,8 +176,6 @@
 (require 'cider)
 (setq cider-pprint-fn 'pprint)
 
-(setq redisplay-dont-pause t)
-
 (auto-save-mode t)
 
 ;; Save when out of focus
@@ -277,7 +275,7 @@
 (add-to-list 'same-window-buffer-names "*cider")
 
 (setq nrepl-buffer-name-show-port t)
-(setq cider-prompt-save-file-on-load nil)
+(setq cider-save-file-on-load nil)
 
 (require 'cider-eval-sexp-fu)
 
@@ -307,7 +305,7 @@
                                         ;             (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)))
 
 (when (window-system)
-  (set-default-font "Fira Code"))
+  (set-frame-font "Fira Code"))
 (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
                (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
                (36 . ".\\(?:>\\)")
@@ -342,8 +340,7 @@
 (setq mouse-wheel-progressive-speed nil)
 
 (defun hs-clojure-hide-namespace-and-folds ()
-  "Hide the first (ns ...) expression in the file, and also all
-the (^:fold ...) expressions."
+; Hide the first (ns ...) expression in the file, and also all the (^:fold ...) expressions."
   (interactive)
   (hs-life-goes-on
    (save-excursion
@@ -392,3 +389,5 @@ the (^:fold ...) expressions."
 (require 'helm-descbinds)
 (helm-descbinds-mode)
 
+(provide 'init)
+;;; init.el ends here
