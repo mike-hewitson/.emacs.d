@@ -56,8 +56,6 @@
     helm-cider
     helm-ag
     exec-path-from-shell
-    smex
-    helm-smex
     helm-fuzzier
     helm-swoop
     helm-descbinds
@@ -378,7 +376,7 @@
 
 (define-key isearch-mode-map (kbd "M-s o") #'helm-occur-from-isearch)
 (global-set-key (kbd "M-y") #'helm-show-kill-ring)
-(global-set-key (kbd "C-s") #'helm-occur)
+(global-set-key (kbd "C-s") #'helm-swoop)
 
 (require 'command-log-mode)
 (add-hook 'LaTeX-mode-hook #'command-log-mode)
