@@ -57,7 +57,7 @@
     helm-ag
     exec-path-from-shell
     helm-fuzzier
-    helm-swoop
+  ;  helm-swoop
     helm-descbinds
     )
   "A list of packages to ensure are installed at launch.")
@@ -376,7 +376,8 @@
 
 (define-key isearch-mode-map (kbd "M-s o") #'helm-occur-from-isearch)
 (global-set-key (kbd "M-y") #'helm-show-kill-ring)
-(global-set-key (kbd "C-s") #'helm-swoop)
+                                        ; (global-set-key (kbd "C-s") #'helm-swoop)
+(global-set-key (kbd "C-s") #'helm-occur) ;use helm-occur while swoop broken
 
 (require 'command-log-mode)
 (add-hook 'LaTeX-mode-hook #'command-log-mode)
