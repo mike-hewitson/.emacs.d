@@ -8,4 +8,4 @@ tramp
 *.last
 .emacs.desktop
 .emacs.desktop.lock
-projectile-bookmarks.eld
+*.eld
