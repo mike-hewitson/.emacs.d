@@ -46,6 +46,8 @@
 (global-set-key [s-up] 'windmove-up)
 (global-set-key [s-down] 'windmove-down)
 
+
+(require 'cider)
 (defun cider-repl-reset (force)
   (interactive "P")
   (save-some-buffers)
@@ -138,8 +140,7 @@ middle"
      (t "mid"))))
 
 (defun win-resize-left-or-right ()
-  "Figure out if the current window is to the left, right or in the
-middle"
+  "Figure out if the current window is to the left, right or in the middle"
   (let* ((win-edges (window-edges))
          (this-window-x-min (nth 0 win-edges))
          (this-window-x-max (nth 2 win-edges))
@@ -183,3 +184,19 @@ middle"
 (global-set-key [s-S-right] 'win-resize-minimize-horiz)
 (global-set-key [s-S-up] 'win-resize-enlarge-vert)
 (global-set-key [s-S-down] 'win-resize-minimize-vert)
+
+
+;;helm keybindings
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "C-x b") #'helm-buffers-list)
+(require 'helm-projectile)
+(global-set-key (kbd "C-c p f") #'helm-projectile-find-file)
+
+(define-key isearch-mode-map (kbd "M-s o") #'helm-occur-from-isearch)
+(global-set-key (kbd "M-y") #'helm-show-kill-ring)
+(global-set-key (kbd "C-s") #'helm-swoop)
+
+(provide 'keybinds)
+;;; keybinds.el ends here

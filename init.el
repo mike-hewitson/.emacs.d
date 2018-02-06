@@ -368,25 +368,12 @@
 (helm-cider-mode 1)
 (require 'helm-projectile)
 (helm-projectile-on)
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
-(global-set-key (kbd "C-x b") #'helm-buffers-list)
-(global-set-key (kbd "C-c p f") #'helm-projectile-find-file)
-
-(define-key isearch-mode-map (kbd "M-s o") #'helm-occur-from-isearch)
-(global-set-key (kbd "M-y") #'helm-show-kill-ring)
-(global-set-key (kbd "C-s") #'helm-swoop)
-;; (global-set-key (kbd "C-s") #'helm-occur) ;use helm-occur while swoop broken
 
 (require 'command-log-mode)
 (add-hook 'LaTeX-mode-hook #'command-log-mode)
-
-(global-set-key [remap execute-extended-command] #'helm-smex)
-(global-set-key (kbd "M-X") #'helm-smex-major-mode-commands)
 
 (require 'helm-descbinds)
 (helm-descbinds-mode)
 
 (provide 'init)
-;; init.el ends here
+;;; init.el ends here
