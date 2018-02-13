@@ -196,7 +196,7 @@ middle"
 
 (define-key isearch-mode-map (kbd "M-s o") #'helm-occur-from-isearch)
 (global-set-key (kbd "M-y") #'helm-show-kill-ring)
-(global-set-key (kbd "C-s") #'helm-swoop)
+(global-set-key (kbd "C-s") #'helm-occur)
 
 (provide 'keybinds)
 ;;; keybinds.el ends here

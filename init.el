@@ -57,7 +57,6 @@
     helm-ag
     exec-path-from-shell
     helm-fuzzier
-    helm-swoop
     helm-descbinds
     )
   "A list of packages to ensure are installed at launch.")
@@ -374,6 +373,30 @@
 
 (require 'helm-descbinds)
 (helm-descbinds-mode)
+
+;; Set up helm-occur to behave like swoop
+;; --------------------------------------
+(require 'helm-config)
+
+(defvar my-helm-follow-sources ()
+"List of sources for which helm-follow-mode should be enabled")
+
+;; Use helm-follow-mode for the following sources:
+(add-to-list 'my-helm-follow-sources 'helm-source-occur)
+
+(defun my-helm-set-follow ()
+"Enable helm-follow-mode for the sources specified in the list
+variable my-helm-follow-sources'. This function is meant to be run duringhelm-initialize' and should be added to the hook
+`helm-before-initialize-hook'."
+(mapc (lambda (source)
+(when (memq source my-helm-follow-sources)
+(helm-attrset 'follow 1 (symbol-value source))))
+helm-sources))
+
+;; Add hook to enable helm-follow mode for specified helm
+(add-hook 'helm-before-initialize-hook 'my-helm-set-follow)`
+
+;; --------------------------------------------
 
 (provide 'init)
 ;;; init.el ends here
