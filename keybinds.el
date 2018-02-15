@@ -4,7 +4,8 @@
 (global-set-key [f8] 'cider-connect)
 (global-set-key [M-f8] 'cider-quit)
 
-(global-set-key [f11] (lambda () (interactive) (find-file "~/.lein/profiles.clj")))
+(global-set-key [f10] (lambda () (interactive) (find-file "~/.lein/profiles.clj")))
+(global-set-key [f11] (lambda () (interactive) (find-file "~/.emacs.d/keybinds.el")))
 (global-set-key [f12] (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
 
 (require 'projectile)
@@ -196,7 +197,7 @@ middle"
 
 (define-key isearch-mode-map (kbd "M-s o") #'helm-occur-from-isearch)
 (global-set-key (kbd "M-y") #'helm-show-kill-ring)
-(global-set-key (kbd "C-s") #'helm-occur)
+(global-set-key (kbd "C-s") #'helm-swoop)
 
 (provide 'keybinds)
 ;;; keybinds.el ends here

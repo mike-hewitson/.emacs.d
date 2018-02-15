@@ -9,3 +9,5 @@ tramp
 .emacs.desktop
 .emacs.desktop.lock
 *.eld
+recentf
+projectile-bookmarks.eld

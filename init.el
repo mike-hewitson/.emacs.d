@@ -3,6 +3,8 @@
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -58,6 +60,7 @@
     exec-path-from-shell
     helm-fuzzier
     helm-descbinds
+    helm-swoop
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -106,7 +109,7 @@
  '(nrepl-host "localhost")
  '(package-selected-packages
    (quote
-    (dayone yasnippet-snippets command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
+    (helm-swoop dayone yasnippet-snippets command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
  '(projectile-use-git-grep t)
  '(safe-local-variable-values
    (quote
@@ -373,30 +376,6 @@
 
 (require 'helm-descbinds)
 (helm-descbinds-mode)
-
-;; Set up helm-occur to behave like swoop
-;; --------------------------------------
-(require 'helm-config)
-
-(defvar my-helm-follow-sources ()
-"List of sources for which helm-follow-mode should be enabled")
-
-;; Use helm-follow-mode for the following sources:
-(add-to-list 'my-helm-follow-sources 'helm-source-occur)
-
-(defun my-helm-set-follow ()
-"Enable helm-follow-mode for the sources specified in the list
-variable my-helm-follow-sources'. This function is meant to be run duringhelm-initialize' and should be added to the hook
-`helm-before-initialize-hook'."
-(mapc (lambda (source)
-(when (memq source my-helm-follow-sources)
-(helm-attrset 'follow 1 (symbol-value source))))
-helm-sources))
-
-;; Add hook to enable helm-follow mode for specified helm
-(add-hook 'helm-before-initialize-hook 'my-helm-set-follow)`
-
-;; --------------------------------------------
 
 (provide 'init)
 ;;; init.el ends here
