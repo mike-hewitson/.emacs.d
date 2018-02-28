@@ -29,9 +29,7 @@
     company
     popup
     ;; Project navigation
-    ;;    flx-ido
     projectile
-    ;;  ack-and-a-half
     ag
     ;; Misc.
     markdown-mode
@@ -109,7 +107,7 @@
  '(nrepl-host "localhost")
  '(package-selected-packages
    (quote
-    (helm-swoop dayone yasnippet-snippets command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
+    (cljr-helm helm-swoop dayone yasnippet-snippets command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
  '(projectile-use-git-grep t)
  '(safe-local-variable-values
    (quote
@@ -160,6 +158,7 @@
 (add-hook 'clojure-mode-hook
           (lambda ()
             (clj-refactor-mode 1)
+            (yas-minor-mode 1)
             (paxedit-mode)
             (cljr-add-keybindings-with-prefix "s-r")))
 
