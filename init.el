@@ -42,6 +42,7 @@
     expand-region
     flycheck-joker
     avy
+    web-mode
     ;; Mikes
     command-log-mode
     ;; snippets
@@ -107,7 +108,7 @@
  '(nrepl-host "localhost")
  '(package-selected-packages
    (quote
-    (cljr-helm helm-swoop dayone yasnippet-snippets command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
+    (web-mode cljr-helm helm-swoop dayone yasnippet-snippets command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
  '(projectile-use-git-grep t)
  '(safe-local-variable-values
    (quote
@@ -376,6 +377,18 @@
 
 (require 'helm-descbinds)
 (helm-descbinds-mode)
+
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
 
 (provide 'init)
 ;;; init.el ends here
