@@ -1,1 +1,0 @@
-("~/.emacs.d/" "~/Code/Cognician/Builder2/" "~/Code/Cognician/Chat/" "~/Code/Cognician/Base/" "~/Code/Cognician/zsh-plugin/" "~/Code/Cognician/Manage/")
