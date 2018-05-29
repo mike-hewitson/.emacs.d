@@ -39,7 +39,7 @@
     highlight
     git-link
     expand-region
-    flycheck-joker
+;;    flycheck-joker
     avy
     web-mode
     ;; Mikes
@@ -64,6 +64,11 @@
     web-mode
     emmet-mode
     impatient-mode
+
+    ;; flycheck
+    flycheck-joker
+    flycheck-pos-tip
+
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -77,6 +82,12 @@
 
 (require 'flycheck-joker)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(with-eval-after-load 'flycheck
+  (flycheck-pos-tip-mode))
+
+;; (eval-after-load 'flycheck '(flycheck-clojure-setup))
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (setq cider-font-lock-reader-conditionals nil)
 
@@ -116,7 +127,7 @@
  '(nrepl-host "localhost")
  '(package-selected-packages
    (quote
-    (color-theme-sanityinc-solarized pcre2el impatient-mode emmet-mode web-mode cljr-helm helm-swoop dayone yasnippet-snippets command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
+    (flycheck-pos-tip flycheck-clojure color-theme-sanityinc-solarized pcre2el impatient-mode emmet-mode web-mode cljr-helm helm-swoop dayone yasnippet-snippets command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
  '(projectile-use-git-grep t)
  '(safe-local-variable-values
    (quote
@@ -385,7 +396,6 @@
 
 (require 'helm-descbinds)
 (helm-descbinds-mode)
-
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
