@@ -39,7 +39,6 @@
     highlight
     git-link
     expand-region
-;;    flycheck-joker
     avy
     web-mode
     ;; Mikes
@@ -67,8 +66,6 @@
 
     ;; flycheck
     flycheck-joker
-    flycheck-pos-tip
-
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -81,13 +78,7 @@
 (load (concat user-emacs-directory "keybinds.el"))
 
 (require 'flycheck-joker)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
-(with-eval-after-load 'flycheck
-  (flycheck-pos-tip-mode))
-
-;; (eval-after-load 'flycheck '(flycheck-clojure-setup))
-;; (add-hook 'after-init-hook #'global-flycheck-mode)
+  (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (setq cider-font-lock-reader-conditionals nil)
 
@@ -127,7 +118,7 @@
  '(nrepl-host "localhost")
  '(package-selected-packages
    (quote
-    (flycheck-pos-tip flycheck-clojure color-theme-sanityinc-solarized pcre2el impatient-mode emmet-mode web-mode cljr-helm helm-swoop dayone yasnippet-snippets command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
+    (flycheck-joker color-theme-sanityinc-solarized pcre2el impatient-mode emmet-mode web-mode cljr-helm helm-swoop dayone yasnippet-snippets command-log-mode exec-path-from-shell helm-cider-history helm-package helm-projectile helm-cider helm dracula-theme magit sublimity html-to-hiccup avy expand-region git-link color-identifiers-mode buffer-move powerline color-theme-sanityinc-tomorrow markdown-mode projectile popup company paxedit rainbow-delimiters cider-eval-sexp-fu clj-refactor align-cljlet cider clojure-snippets clojure-mode starter-kit-lisp starter-kit-bindings starter-kit)))
  '(projectile-use-git-grep t)
  '(safe-local-variable-values
    (quote
