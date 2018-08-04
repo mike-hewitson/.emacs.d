@@ -122,7 +122,11 @@
  '(projectile-use-git-grep t)
  '(safe-local-variable-values
    (quote
-    ((cider-refresh-after-fn . "integrant.repl/resume")
+    ((cider-refresh-after-fn . "cognician.manage.dev-server/start-service!")
+     (cider-refresh-before-fn . "cognician.manage.dev-server/stop-service!")
+     (cider-refresh-after-fn . "cognician.builder2.dev-server/start-service!")
+     (cider-refresh-before-fn . "cognician.builder2.dev-server/stop-service!")
+     (cider-refresh-after-fn . "integrant.repl/resume")
      (cider-refresh-before-fn . "integrant.repl/suspend")
      (cider-cljs-lein-repl . "(do (dev) (go) (cljs-repl))")
      (cider-refresh-after-fn . "reloaded.repl/resume")
