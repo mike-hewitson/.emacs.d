@@ -199,5 +199,9 @@ middle"
 (global-set-key (kbd "M-y") #'helm-show-kill-ring)
 (global-set-key (kbd "C-s") #'helm-swoop)
 
+;; default for projectile
+
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+
 (provide 'keybinds)
 ;;; keybinds.el ends here
